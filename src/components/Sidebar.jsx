@@ -1,3 +1,4 @@
+
 import {
   GraduationCap,
   LayoutDashboard,
@@ -6,10 +7,13 @@ import {
   Timer,
   BookOpen,
   BarChart3,
+  Sun,
+  Moon,
 } from "lucide-react";
+
 import "../styles/Sidebar.css";
 
-// The `name` values must match the `case` labels in App.jsx
+// Navigation items
 const navItems = [
   { name: "Dashboard", icon: LayoutDashboard },
   { name: "Tasks", icon: CheckSquare },
@@ -19,7 +23,7 @@ const navItems = [
   { name: "Analytics", icon: BarChart3 },
 ];
 
-function Sidebar({ activePage, onNavigate }) {
+function Sidebar({ activePage, onNavigate, theme, onToggleTheme }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-logo">
@@ -34,7 +38,6 @@ function Sidebar({ activePage, onNavigate }) {
           <button
             key={name}
             className={`nav-link ${activePage === name ? "active" : ""}`}
-            // On mobile the text label is hidden, so screen readers need this
             aria-label={name}
             aria-current={activePage === name ? "page" : undefined}
             onClick={() => onNavigate(name)}
@@ -44,6 +47,21 @@ function Sidebar({ activePage, onNavigate }) {
           </button>
         ))}
       </nav>
+
+      {/* Theme toggle */}
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={onToggleTheme}
+        aria-label={
+          theme === "dark"
+            ? "Switch to light theme"
+            : "Switch to dark theme"
+        }
+      >
+        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+        <span>{theme === "dark" ? "Light mode" : "Dark mode"}</span>
+      </button>
     </aside>
   );
 }

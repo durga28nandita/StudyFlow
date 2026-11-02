@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
@@ -9,10 +10,39 @@ import Analytics from "./pages/Analytics";
 import "./App.css";
 
 function App() {
-  // Tracks which page is active (no router needed for now)
+  // Tracks which page is active
   const [activePage, setActivePage] = useState("Dashboard");
 
-  // Decide which page to show based on the sidebar selection
+  // Tracks the selected theme
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("studyflow-theme") === "light"
+        ? "light"
+        : "dark";
+    } catch {
+      return "dark";
+    }
+  });
+
+  // Applies the theme and saves the preference
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+
+    try {
+      localStorage.setItem("studyflow-theme", theme);
+    } catch {
+      // App will still work if LocalStorage is unavailable
+    }
+  }, [theme]);
+
+  // Switches between dark and light themes
+  const toggleTheme = () => {
+    setTheme((currentTheme) =>
+      currentTheme === "dark" ? "light" : "dark"
+    );
+  };
+
+  // Decide which page to show
   const renderPage = () => {
     switch (activePage) {
       case "Dashboard":
@@ -24,10 +54,8 @@ function App() {
       case "Focus Timer":
         return <FocusTimer />;
       case "Study Tracker":
-        // onNavigate lets the tracker link to the Study Planner
         return <StudyTracker onNavigate={setActivePage} />;
       case "Analytics":
-        // onNavigate lets the empty state link to the pages that create data
         return <Analytics onNavigate={setActivePage} />;
       default:
         return (
@@ -41,7 +69,12 @@ function App() {
 
   return (
     <div className="app-layout">
-      <Sidebar activePage={activePage} onNavigate={setActivePage} />
+      <Sidebar
+        activePage={activePage}
+        onNavigate={setActivePage}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
 
       <main className="main-content">
         {renderPage()}

@@ -1,9 +1,15 @@
+
+/* ==============================
+   SIDEBAR
+   ============================== */
+
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 250px;
   height: 100vh;
+  min-height: 500px;
   background: var(--card);
   border-right: 1px solid var(--border);
   padding: 24px 16px;
@@ -12,6 +18,8 @@
   gap: 32px;
   z-index: 10;
 }
+
+/* Logo */
 
 .sidebar-logo {
   display: flex;
@@ -37,10 +45,13 @@
   font-weight: 700;
 }
 
+/* Navigation */
+
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  flex: 1;
 }
 
 .nav-link {
@@ -69,16 +80,48 @@
   box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
 }
 
-/* Mobile: sidebar becomes a bottom icon bar */
+/* ==============================
+   THEME TOGGLE
+   ============================== */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  margin-top: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--text);
+}
+
+/* ==============================
+   MOBILE RESPONSIVE
+   ============================== */
+
 @media (max-width: 768px) {
   .sidebar {
     top: auto;
     bottom: 0;
     width: 100%;
     height: auto;
+    min-height: 0;
     padding: 8px;
     border-right: none;
     border-top: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
   }
 
   .sidebar-logo {
@@ -89,6 +132,7 @@
     flex-direction: row;
     justify-content: space-between;
     overflow-x: auto;
+    flex: 1;
   }
 
   .nav-link {
@@ -102,5 +146,17 @@
 
   .nav-link:hover {
     transform: none;
+  }
+
+  .theme-toggle {
+    width: auto;
+    flex-shrink: 0;
+    margin-top: 0;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .theme-toggle span {
+    display: none;
   }
 }

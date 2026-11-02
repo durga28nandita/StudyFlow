@@ -23,3 +23,49 @@
     padding: 20px 16px 90px; /* extra bottom space for the mobile nav bar */
   }
 }
+
+/* ==============================
+   STUDYFLOW LIGHT THEME
+   ============================== */
+
+/* ==============================
+   STUDYFLOW LIGHT THEME
+   ============================== */
+
+:root[data-theme="light"] {
+  /* Backgrounds */
+  --bg: #f7f5fc;
+  --card: #ffffff;
+  --card-hover: #f1edfa;
+
+  /* Accent colours */
+  --lavender: #a78bfa;
+  --violet: #7c3aed;
+
+  /* Text */
+  --text: #241b35;
+  --muted: #625873;
+  --placeholder: #81768f;
+
+  /* Borders and shadows */
+  --border: rgba(91, 55, 150, 0.20);
+  --shadow: 0 8px 24px rgba(50, 35, 80, 0.06);
+}
+
+/* Light theme form field improvements */
+
+:root[data-theme="light"] input,
+:root[data-theme="light"] select,
+:root[data-theme="light"] textarea {
+  border-color: var(--border);
+}
+
+/* Make focused fields easier to identify */
+
+:root[data-theme="light"] input:focus,
+:root[data-theme="light"] select:focus,
+:root[data-theme="light"] textarea:focus {
+  border-color: var(--violet);
+  outline: 2px solid rgba(124, 58, 237, 0.12);
+  outline-offset: 1px;
+}

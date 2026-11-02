@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import StudyPlanner from "./pages/StudyPlanner";
@@ -45,7 +44,6 @@ function App() {
       <Sidebar activePage={activePage} onNavigate={setActivePage} />
 
       <main className="main-content">
-        <Header userName="Alex" />
         {renderPage()}
       </main>
     </div>

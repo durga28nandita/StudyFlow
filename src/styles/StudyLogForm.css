@@ -1,0 +1,127 @@
+.lf-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.lf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.lf-full {
+  grid-column: 1 / -1;
+}
+
+.lf-field label {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.lf-field input,
+.lf-field select,
+.lf-field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color-scheme: dark; /* dark date picker and number arrows */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lf-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.lf-field input::placeholder,
+.lf-field textarea::placeholder {
+  color: #6f688d;
+}
+
+.lf-field input:focus,
+.lf-field select:focus,
+.lf-field textarea:focus {
+  outline: none;
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+}
+
+.lf-field select option {
+  background: var(--card);
+  color: var(--text);
+}
+
+.lf-notice {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
+  font-size: 0.88rem;
+}
+
+.lf-error {
+  color: #f87171;
+  font-size: 0.85rem;
+}
+
+.lf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.lf-btn.primary {
+  background: linear-gradient(135deg, var(--violet), #7c3aed);
+  color: white;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+.lf-btn.primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+}
+
+.lf-btn.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lf-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.lf-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 500px) {
+  .lf-form {
+    grid-template-columns: 1fr;
+  }
+
+  .lf-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

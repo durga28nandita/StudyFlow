@@ -1,0 +1,456 @@
+/* =====================================================================
+   StudyFlow typography
+   Loaded last (see main.jsx). Only fonts, text colours and the opacity of
+   faded text are set here. Layout, spacing and theme colours are untouched.
+   All values come from the variables in index.css.
+   ===================================================================== */
+
+/* ---------- 1. Page headings (26-28px, bold) ---------- */
+.header-title {
+  font-size: var(--text-page-lg);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-heading);
+}
+
+.tm-heading h2,
+.sp-heading h2,
+.ft-heading h2,
+.st-heading h2,
+.an-heading h2 {
+  font-size: var(--text-page);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-heading);
+}
+
+/* Page descriptions and the date */
+.header-date,
+.tm-heading p,
+.sp-heading p,
+.ft-heading p,
+.st-heading p,
+.an-heading p {
+  font-size: var(--text-body);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+}
+
+/* ---------- 2. Section headings (18-20px, semibold) ---------- */
+.an-section-head h3,
+.cv-month,
+.placeholder h2 {
+  font-size: var(--text-section);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+.sp-range {
+  font-size: var(--text-subsection);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+}
+
+.an-section-head p {
+  font-size: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ---------- 3. Card headings (17px, semibold) ---------- */
+.panel-title,
+.tm-card-title,
+.sp-card-title,
+.ft-card-title,
+.st-card-title,
+.an-card-title,
+.dg-title h2,
+.cv-day-title,
+.tm-empty h4,
+.sp-empty h4,
+.ft-empty h4,
+.st-empty h4,
+.an-empty h4 {
+  font-size: var(--text-card);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+/* Descriptions under card headings and in empty states */
+.an-card-sub,
+.cv-day-sub,
+.tm-empty p,
+.sp-empty p,
+.ft-empty p,
+.st-empty p,
+.an-empty p,
+.placeholder p {
+  font-size: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ---------- 4. Sidebar ---------- */
+.logo-text {
+  font-size: 1.375rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-heading);
+}
+
+.nav-link {
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+}
+
+.avatar {
+  font-size: 1.125rem;
+  font-weight: var(--fw-bold);
+}
+
+/* ---------- 5. Statistic cards and key numbers (700) ---------- */
+.stat-title {
+  font-size: var(--text-secondary);
+  font-weight: var(--fw-medium);
+}
+
+.stat-value {
+  font-size: var(--text-stat);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-subtitle {
+  font-size: var(--text-small);
+  font-weight: var(--fw-medium);
+}
+
+.an-mini-label {
+  font-size: var(--text-small);
+  font-weight: var(--fw-medium);
+}
+
+.an-mini-value {
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.dg-goal-title {
+  font-size: var(--text-secondary);
+  font-weight: var(--fw-medium);
+}
+
+.dg-goal-value {
+  font-size: var(--text-card);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.dg-pct {
+  font-size: var(--text-subsection);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.dg-note,
+.dg-hint {
+  font-size: var(--text-secondary);
+}
+
+.wt-day-num {
+  font-size: 1.375rem;
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 6. List item titles (body text, medium so it stays crisp) ---------- */
+.task-title,
+.tm-title,
+.sc-topic,
+.lg-topic,
+.deadline-title,
+.sm-name,
+.ft-item-info p {
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+  line-height: 1.45;
+}
+
+.sc-card.compact .sc-topic {
+  font-size: var(--text-secondary);
+}
+
+/* Meta text under list items */
+.deadline-date,
+.sc-time,
+.ft-item-info span,
+.lg-notes,
+.st-subject-time,
+.cv-day-sub,
+.sm-error,
+.sf-error,
+.sf-notice,
+.lf-error,
+.lf-notice,
+.tf-error,
+.ts-error,
+.ts-note,
+.dg-error,
+.an-progress-top,
+.an-section-head p {
+  font-size: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.st-subject-time,
+.an-progress-top {
+  font-weight: var(--fw-medium);
+}
+
+.st-subject-name {
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+}
+
+.daily-summary,
+.sp-daily-summary {
+  font-size: var(--text-secondary);
+}
+
+/* ---------- 7. Tags, chips, badges (13px, medium) ---------- */
+.task-tag,
+.deadline-badge,
+.tm-subject,
+.tm-priority,
+.tm-due,
+.tm-filter-count,
+.lg-subject,
+.lg-chip,
+.ft-item-duration,
+.st-count {
+  font-size: var(--text-small);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  letter-spacing: var(--ls-label);
+  font-variant-numeric: tabular-nums;
+}
+
+.sc-subject {
+  font-size: var(--text-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+}
+
+.wt-day-name,
+.cv-weekday {
+  font-size: var(--text-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+}
+
+.wt-free {
+  font-size: var(--text-secondary);
+}
+
+/* ---------- 8. Calendar ---------- */
+.cv-num {
+  font-size: var(--text-secondary);
+  font-weight: var(--fw-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The calendar cells are small, so 12px is the smallest text in the app */
+.cv-chip,
+.cv-more {
+  font-size: var(--text-micro);
+  line-height: 1.4;
+}
+
+.cv-chip-name {
+  font-weight: var(--fw-semibold);
+}
+
+.cv-chip-time {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 9. Buttons, toggles and filters ---------- */
+.tf-btn,
+.sf-btn,
+.lf-btn,
+.sm-btn,
+.ts-btn,
+.dg-btn,
+.st-btn,
+.an-btn,
+.cv-add-btn,
+.cv-switch-btn,
+.sp-toggle-btn,
+.ft-mode-btn {
+  font-size: var(--text-body);
+  font-weight: var(--fw-semibold);
+}
+
+.ft-btn {
+  font-size: var(--text-input);
+  font-weight: var(--fw-semibold);
+}
+
+.tm-filter,
+.an-filter,
+.sp-today-btn,
+.dg-edit-btn,
+.st-link-btn {
+  font-size: var(--text-secondary);
+  font-weight: var(--fw-medium);
+}
+
+.ft-mode-btn {
+  font-weight: var(--fw-medium);
+}
+
+.ft-mode-btn.active,
+.an-filter.active,
+.tm-filter.active,
+.sp-toggle-btn.active {
+  font-weight: var(--fw-semibold);
+}
+
+/* ---------- 10. Forms ---------- */
+.tf-field label,
+.sf-field label,
+.lf-field label,
+.ts-field label,
+.dg-field label {
+  font-size: var(--text-secondary);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-label);
+}
+
+.tf-field input,
+.tf-field select,
+.sf-field input,
+.sf-field select,
+.lf-field input,
+.lf-field select,
+.lf-field textarea,
+.ts-field input,
+.dg-field input,
+.sm-input {
+  font-size: var(--text-input);
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+}
+
+.tf-field input::placeholder,
+.sf-field input::placeholder,
+.lf-field input::placeholder,
+.lf-field textarea::placeholder,
+.sm-input::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+/* ---------- 11. Focus Timer ---------- */
+.ft-time {
+  font-family: var(--font-mono); /* the only place the mono font is used */
+  font-size: clamp(2.5rem, 10vw, 3.75rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.ft-mode-label {
+  font-size: var(--text-secondary);
+  font-weight: var(--fw-semibold);
+}
+
+.ft-status {
+  font-size: var(--text-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+}
+
+.ft-message {
+  font-size: var(--text-body);
+  font-weight: var(--fw-medium);
+}
+
+/* ---------- 12. Charts (Recharts draws SVG text, so CSS targets its classes) ---------- */
+.recharts-cartesian-axis-tick-value,
+.recharts-text {
+  fill: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: var(--fw-medium);
+}
+
+.recharts-default-tooltip {
+  font-family: var(--font-sans);
+  font-size: var(--text-secondary);
+}
+
+.recharts-tooltip-label {
+  font-weight: var(--fw-semibold);
+  margin-bottom: 4px;
+}
+
+.recharts-tooltip-item {
+  font-weight: var(--fw-medium);
+}
+
+.recharts-tooltip-item-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 13. Disabled and faded states stay readable ---------- */
+.ft-btn:disabled,
+.ft-mode-btn:disabled:not(.active),
+.ts-btn:disabled,
+.ts-field input:disabled,
+.sf-btn.primary:disabled,
+.lf-btn.primary:disabled {
+  opacity: 0.6;
+}
+
+.tm-item.done,
+.sc-card.done {
+  opacity: 0.8;
+}
+
+.cv-chip.done {
+  opacity: 0.7;
+}
+
+.cv-cell.outside {
+  opacity: 0.6;
+}
+
+.dg-goal.unset {
+  opacity: 0.8;
+}
+
+.wt-free {
+  opacity: 0.85;
+}
+
+/* ---------- 14. Small screens ---------- */
+@media (max-width: 768px) {
+  .header-title,
+  .tm-heading h2,
+  .sp-heading h2,
+  .ft-heading h2,
+  .st-heading h2,
+  .an-heading h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .stat-value {
+    font-size: 1.625rem;
+  }
+}

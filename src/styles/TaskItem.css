@@ -1,0 +1,149 @@
+.tm-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border-left: 4px solid var(--lavender);
+  background: rgba(255, 255, 255, 0.03);
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tm-item:hover {
+  background: rgba(139, 92, 246, 0.12);
+  transform: translateX(3px);
+}
+
+/* Left border colour shows the priority at a glance */
+.tm-item.priority-low {
+  border-left-color: #34d399;
+}
+.tm-item.priority-medium {
+  border-left-color: #fbbf24;
+}
+.tm-item.priority-high {
+  border-left-color: #f87171;
+}
+
+/* Highlight the task currently being edited */
+.tm-item.editing {
+  background: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 0 1px var(--violet);
+}
+
+.tm-check {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--violet);
+  cursor: pointer;
+}
+
+.tm-body {
+  flex: 1;
+  min-width: 0; /* lets long titles wrap instead of overflowing */
+}
+
+.tm-title {
+  font-size: 0.98rem;
+  word-break: break-word;
+}
+
+.tm-item.done .tm-title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.tm-item.done {
+  opacity: 0.75;
+}
+
+.tm-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tm-subject,
+.tm-priority,
+.tm-due {
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.tm-subject {
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--lavender);
+}
+
+.tm-due {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+}
+
+.tm-due.overdue {
+  background: rgba(248, 113, 113, 0.18);
+  color: #f87171;
+}
+
+.tm-priority.low {
+  background: rgba(52, 211, 153, 0.15);
+  color: #34d399;
+}
+.tm-priority.medium {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+}
+.tm-priority.high {
+  background: rgba(248, 113, 113, 0.18);
+  color: #f87171;
+}
+
+/* ----- Edit / delete buttons ----- */
+.tm-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.tm-icon-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.tm-icon-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--lavender);
+}
+
+.tm-icon-btn.danger:hover {
+  background: rgba(248, 113, 113, 0.18);
+  color: #f87171;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 500px) {
+  .tm-item {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .tm-item:hover {
+    transform: none;
+  }
+}

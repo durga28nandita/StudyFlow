@@ -1,0 +1,127 @@
+.tasks-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.tm-heading h2 {
+  font-size: 1.4rem;
+}
+
+.tm-heading p {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+/* ----- Count cards (reuses StatCard) ----- */
+.tm-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ----- Shared card style (also used by TaskForm) ----- */
+.tm-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.25s ease;
+}
+
+.tm-card:hover {
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.18);
+}
+
+.tm-card-title {
+  font-size: 1.1rem;
+}
+
+/* ----- List header + filters ----- */
+.tm-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.tm-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tm-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.tm-filter:hover {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--text);
+}
+
+.tm-filter.active {
+  background: linear-gradient(135deg, var(--violet), #7c3aed);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+.tm-filter-count {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* ----- Task list ----- */
+.tm-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ----- Empty state ----- */
+.tm-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 40px 16px;
+  color: var(--muted);
+}
+
+.tm-empty svg {
+  color: var(--lavender);
+  opacity: 0.7;
+}
+
+.tm-empty h4 {
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 800px) {
+  .tm-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

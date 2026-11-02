@@ -1,0 +1,236 @@
+.st-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.st-heading h2 {
+  font-size: 1.4rem;
+}
+
+.st-heading p {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.st-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.st-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.st-two-col-history {
+  grid-template-columns: 1fr 1.4fr;
+}
+
+/* ----- Shared card (also used by the form and chart components) ----- */
+.st-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.25s ease;
+  min-width: 0;
+}
+
+.st-card:hover {
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.18);
+}
+
+.st-card-title {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.st-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.st-card-header .st-card-title {
+  margin-bottom: 0;
+}
+
+.st-count {
+  min-width: 28px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--lavender);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* ----- Chart ----- */
+.st-chart {
+  width: 100%;
+  height: 300px;
+}
+
+/* ----- Subject totals ----- */
+.st-subject-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.st-subject {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.st-subject:hover {
+  background: rgba(139, 92, 246, 0.12);
+  transform: translateX(3px);
+}
+
+.st-subject-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.st-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--subject-color);
+}
+
+.st-subject-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.st-subject-time {
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.st-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.st-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--subject-color);
+  transition: width 0.4s ease;
+}
+
+/* ----- History list ----- */
+.st-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.st-link-btn {
+  display: block;
+  margin: 16px auto 0;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--lavender);
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.st-link-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--violet);
+}
+
+/* ----- Empty state ----- */
+.st-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 36px 16px;
+  color: var(--muted);
+}
+
+.st-empty.small {
+  padding: 24px 16px;
+}
+
+.st-empty svg {
+  color: var(--lavender);
+  opacity: 0.7;
+}
+
+.st-empty h4 {
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.st-btn {
+  margin-top: 8px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--violet), #7c3aed);
+  color: white;
+  font-size: 0.92rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.st-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1100px) {
+  .st-two-col,
+  .st-two-col-history {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .st-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .st-subject:hover {
+    transform: none;
+  }
+
+  .st-chart {
+    height: 260px;
+  }
+}

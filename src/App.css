@@ -1,0 +1,25 @@
+.app-layout {
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 28px 32px;
+}
+
+.placeholder {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px 16px 90px; /* extra bottom space for the mobile nav bar */
+  }
+}

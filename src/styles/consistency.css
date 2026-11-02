@@ -1,0 +1,520 @@
+/* =====================================================================
+   StudyFlow consistency layer
+   Loaded last (see main.jsx). Fixes spacing, radii, shadows, button and
+   field sizes, empty states, charts and responsive breakpoints.
+   Colours of the dark-purple theme and the Inter typography are unchanged.
+
+   Breakpoints used everywhere:
+     1280px  4-card stat rows go to 2 columns
+     1100px  tablet: two-column layouts stack
+      768px  mobile: sidebar becomes a bottom bar
+      500px  small phones: everything single column
+   ===================================================================== */
+
+:root {
+  color-scheme: dark; /* dark scrollbars, date pickers and number arrows */
+
+  --space-page: 24px; /* between sections on a page */
+  --space-grid: 20px; /* between cards in a grid */
+  --radius-card: 18px;
+  --radius-control: 12px; /* buttons, inputs, list rows */
+  --control-height: 44px;
+
+  /* Slightly deeper violet: white text on it is about 5.7:1 (was 4.2:1) */
+  --gradient-primary: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-page: 20px;
+    --space-grid: 16px;
+  }
+}
+
+/* ---------- 1. Page rhythm ---------- */
+.dashboard,
+.tasks-page,
+.sp-page,
+.ft-page,
+.st-page,
+.an-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-page);
+}
+
+.header {
+  margin-bottom: var(--space-page);
+}
+
+.header > div {
+  min-width: 0;
+}
+
+.header-title {
+  overflow-wrap: anywhere;
+}
+
+/* Dashboard used margins; the flex gap above replaces them */
+.stats-grid {
+  margin-bottom: 0;
+}
+
+.dg-card {
+  margin-bottom: 0;
+  padding: 22px;
+}
+
+.stats-grid,
+.tm-stats,
+.sp-stats,
+.ft-stats,
+.st-stats,
+.an-stats,
+.dashboard-grid,
+.sp-two-col,
+.ft-two-col,
+.st-two-col,
+.an-two-col,
+.ft-side {
+  gap: var(--space-grid);
+}
+
+/* ---------- 2. Cards: one radius, border, background and shadow ---------- */
+.panel,
+.tm-card,
+.sp-card,
+.ft-card,
+.st-card,
+.an-card,
+.dg-card,
+.stat-card,
+.placeholder {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+}
+
+.panel,
+.tm-card,
+.sp-card,
+.ft-card,
+.st-card,
+.an-card,
+.dg-card {
+  padding: 22px;
+  min-width: 0;
+}
+
+/* Large containers aren't clickable, so they don't glow on hover */
+.panel:hover,
+.tm-card:hover,
+.sp-card:hover,
+.ft-card:hover,
+.st-card:hover,
+.an-card:hover,
+.dg-card:hover {
+  box-shadow: var(--shadow);
+}
+
+/* Stat cards keep a lift, but a smaller one */
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(139, 92, 246, 0.22);
+}
+
+.stat-info {
+  min-width: 0;
+}
+
+.stat-value {
+  overflow-wrap: anywhere;
+}
+
+/* List rows share one radius */
+.task-item,
+.deadline-item,
+.tm-item,
+.sc-card,
+.lg-item,
+.sm-item,
+.st-subject,
+.ft-item {
+  border-radius: var(--radius-control);
+}
+
+/* ---------- 3. Grids and breakpoints ---------- */
+.stats-grid,
+.an-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tm-stats,
+.sp-stats,
+.ft-stats,
+.st-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dashboard-grid > *,
+.sp-two-col > *,
+.ft-two-col > *,
+.st-two-col > *,
+.an-two-col > * {
+  min-width: 0;
+}
+
+/* 4-card rows are too cramped beside the sidebar below 1280px */
+@media (max-width: 1280px) {
+  .stats-grid,
+  .an-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Tablet: every two-column layout stacks at the same width */
+@media (max-width: 1100px) {
+  .dashboard-grid,
+  .sp-two-col,
+  .ft-two-col,
+  .st-two-col,
+  .st-two-col-history,
+  .an-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .tm-stats,
+  .sp-stats,
+  .ft-stats,
+  .st-stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* Weekly timetable wraps into columns instead of scrolling sideways */
+  .wt-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .stats-grid,
+  .an-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Narrower sidebar on tablets gives the content more room */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .sidebar {
+    width: 220px;
+    padding: 24px 12px;
+  }
+
+  .main-content {
+    margin-left: 220px;
+    padding: 24px;
+  }
+}
+
+/* Calendar: text chips need wider cells, so switch to dots earlier */
+@media (max-width: 1200px) {
+  .cv-chips {
+    display: none;
+  }
+
+  .cv-dots {
+    display: flex;
+  }
+
+  .cv-cell {
+    align-items: center;
+    min-height: 62px;
+    padding: 6px 4px;
+  }
+
+  .cv-num {
+    align-self: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .cv-cell {
+    min-height: 54px;
+  }
+}
+
+/* ---------- 4. Overflow protection (long titles and names) ---------- */
+.task-item label {
+  min-width: 0;
+}
+
+.task-title,
+.deadline-title {
+  overflow-wrap: anywhere;
+}
+
+.deadline-info {
+  min-width: 0;
+}
+
+.deadline-badge {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.tm-subject,
+.lg-subject,
+.task-tag {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-tag {
+  max-width: 40%;
+}
+
+/* ---------- 5. Buttons: one height, radius and alignment ---------- */
+.tf-btn,
+.sf-btn,
+.lf-btn,
+.sm-btn,
+.ts-btn,
+.dg-btn,
+.st-btn,
+.an-btn,
+.cv-add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--control-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: var(--radius-control);
+}
+
+.ft-btn {
+  border-radius: var(--radius-control);
+}
+
+/* Primary / active states share the deeper gradient (better text contrast) */
+.nav-link.active,
+.tm-filter.active,
+.an-filter.active,
+.sp-toggle-btn.active,
+.ft-mode-btn.active,
+.tf-btn.primary,
+.sf-btn.primary,
+.lf-btn.primary,
+.sm-btn.primary,
+.ft-btn.primary,
+.dg-btn.primary,
+.ts-btn,
+.st-btn,
+.an-btn,
+.cv-add-btn {
+  background: var(--gradient-primary);
+}
+
+/* The avatar's white initial was unreadable on the light lavender end */
+.avatar,
+.logo-icon {
+  background: var(--gradient-primary);
+}
+
+/* Icon buttons: same size everywhere */
+.tm-icon-btn,
+.sm-icon-btn,
+.sc-icon-btn,
+.lg-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.sc-card.compact .sc-icon-btn {
+  width: 32px;
+  height: 32px;
+}
+
+/* Checkboxes: same size everywhere */
+.task-item input[type="checkbox"],
+.tm-check,
+.sc-check {
+  width: 20px;
+  height: 20px;
+}
+
+/* Visible keyboard focus (buttons had none) */
+button:focus-visible,
+[role="radio"]:focus-visible,
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 2px;
+}
+
+/* ---------- 6. Form fields ---------- */
+.tf-field input,
+.tf-field select,
+.sf-field input,
+.sf-field select,
+.lf-field input,
+.lf-field select,
+.ts-field input,
+.dg-field input,
+.sm-input {
+  min-height: var(--control-height);
+  padding: 10px 14px;
+  border-radius: var(--radius-control);
+}
+
+.lf-field textarea {
+  border-radius: var(--radius-control);
+}
+
+/* Errors and notices look the same on every form */
+.tf-error,
+.sf-error,
+.lf-error,
+.sm-error,
+.ts-error,
+.dg-error {
+  color: #fca5a5;
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+}
+
+.sf-notice,
+.lf-notice,
+.ts-note {
+  padding: 10px 14px;
+  border-radius: var(--radius-control);
+  background: rgba(251, 191, 36, 0.12);
+  color: #fcd34d;
+  line-height: 1.5;
+}
+
+/* ---------- 7. Empty states ---------- */
+.tm-empty,
+.sp-empty,
+.ft-empty,
+.st-empty,
+.an-empty {
+  align-items: center;
+  gap: 8px;
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.tm-empty svg,
+.sp-empty svg,
+.ft-empty svg,
+.st-empty svg,
+.an-empty svg {
+  width: 40px;
+  height: 40px;
+}
+
+.tm-empty p,
+.sp-empty p,
+.ft-empty p,
+.st-empty p,
+.an-empty p {
+  max-width: 420px;
+}
+
+.sp-empty.small,
+.st-empty.small {
+  padding: 24px 16px;
+}
+
+.sp-empty.small svg,
+.st-empty.small svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* ---------- 8. Charts ---------- */
+.chart-wrapper,
+.st-chart,
+.an-chart {
+  height: 300px;
+}
+
+@media (max-width: 500px) {
+  .chart-wrapper,
+  .st-chart,
+  .an-chart {
+    height: 260px;
+  }
+}
+
+/* Tooltip text took the bar's violet colour; keep it light on every chart */
+.recharts-tooltip-item {
+  color: var(--text) !important;
+}
+
+.recharts-tooltip-label {
+  color: var(--text);
+}
+
+.recharts-wrapper,
+.recharts-surface {
+  outline: none;
+}
+
+/* ---------- 9. Contrast ---------- */
+/* Subject colours are lightened a little so small labels stay readable.
+   Browsers without color-mix keep the original colour. */
+.sc-subject,
+.lg-subject {
+  color: color-mix(in srgb, var(--subject-color) 65%, white);
+}
+
+/* ---------- 10. Interaction: subtle, and no sticky hover on touch ---------- */
+@media (hover: none) {
+  .nav-link:hover,
+  .stat-card:hover,
+  .task-item:hover,
+  .deadline-item:hover,
+  .tm-item:hover,
+  .sc-card:hover,
+  .sc-card.compact:hover,
+  .lg-item:hover,
+  .sm-item:hover,
+  .st-subject:hover,
+  .ft-item:hover,
+  .an-mini:hover,
+  .dg-goal:hover,
+  .cv-cell:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- 11. Small screens ---------- */
+@media (max-width: 500px) {
+  .panel,
+  .tm-card,
+  .sp-card,
+  .ft-card,
+  .st-card,
+  .an-card,
+  .dg-card {
+    padding: 16px;
+  }
+
+  .ft-timer-card {
+    padding: 24px 16px;
+  }
+}

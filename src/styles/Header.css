@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  gap: 16px;
+}
+
+.header-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.header-date {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), var(--lavender));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.45);
+  transition: transform 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.25rem;
+  }
+}

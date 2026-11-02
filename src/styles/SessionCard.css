@@ -1,0 +1,128 @@
+.sc-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border-left: 4px solid var(--subject-color);
+  background: rgba(255, 255, 255, 0.03); /* fallback */
+  background: color-mix(in srgb, var(--subject-color) 12%, transparent);
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sc-card:hover {
+  transform: translateX(3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.sc-check {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--violet);
+  cursor: pointer;
+}
+
+.sc-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.sc-subject {
+  color: var(--subject-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sc-topic {
+  margin: 2px 0 4px;
+  font-size: 0.98rem;
+  word-break: break-word;
+}
+
+.sc-time {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.sc-card.done .sc-topic {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.sc-card.done {
+  opacity: 0.65;
+}
+
+.sc-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.sc-icon-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.sc-icon-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--lavender);
+}
+
+.sc-icon-btn.danger:hover {
+  background: rgba(248, 113, 113, 0.18);
+  color: #f87171;
+}
+
+/* ----- Compact version (weekly timetable) ----- */
+.sc-card.compact {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 4px 10px;
+  padding: 10px;
+}
+
+.sc-card.compact:hover {
+  transform: translateY(-2px);
+}
+
+.sc-card.compact .sc-topic {
+  font-size: 0.88rem;
+}
+
+.sc-card.compact .sc-actions {
+  grid-column: 1 / -1;
+  justify-content: flex-end;
+}
+
+.sc-card.compact .sc-icon-btn {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 500px) {
+  .sc-card {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .sc-card:hover {
+    transform: none;
+  }
+}

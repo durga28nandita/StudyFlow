@@ -1,0 +1,89 @@
+/* Scrolls sideways on mid-sized screens instead of squashing the columns */
+.wt-scroll {
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.wt-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.wt-day {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  min-width: 0;
+}
+
+.wt-day.today {
+  border-color: var(--violet);
+  background: rgba(139, 92, 246, 0.08);
+  box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.3);
+}
+
+.wt-day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text);
+  transition: background 0.2s ease;
+}
+
+.wt-day-header:hover {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.wt-day-name {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wt-day-num {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.wt-day.today .wt-day-num {
+  color: var(--lavender);
+}
+
+.wt-sessions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wt-free {
+  padding: 14px 8px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  opacity: 0.6;
+}
+
+/* Phone / small tablet: stack the days vertically */
+@media (max-width: 800px) {
+  .wt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wt-day-header {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}

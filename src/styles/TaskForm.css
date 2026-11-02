@@ -1,0 +1,107 @@
+.tf-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.tf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tf-full {
+  grid-column: 1 / -1;
+}
+
+.tf-field label {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.tf-field input,
+.tf-field select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color-scheme: dark; /* dark calendar popup and icon */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tf-field input::placeholder {
+  color: #6f688d;
+}
+
+.tf-field input:focus,
+.tf-field select:focus {
+  outline: none;
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+}
+
+.tf-field select option {
+  background: var(--card);
+  color: var(--text);
+}
+
+.tf-error {
+  color: #f87171;
+  font-size: 0.82rem;
+}
+
+.tf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.tf-btn.primary {
+  background: linear-gradient(135deg, var(--violet), #7c3aed);
+  color: white;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+.tf-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+}
+
+.tf-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.tf-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 800px) {
+  .tf-form {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

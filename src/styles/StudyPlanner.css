@@ -1,0 +1,177 @@
+.sp-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sp-heading h2 {
+  font-size: 1.4rem;
+}
+
+.sp-heading p {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.sp-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ----- Shared card ----- */
+.sp-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.25s ease;
+  min-width: 0;
+}
+
+.sp-card:hover {
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.18);
+}
+
+.sp-card-title {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.sp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.sp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ----- Empty state ----- */
+.sp-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 36px 16px;
+  color: var(--muted);
+}
+
+.sp-empty.small {
+  padding: 24px 16px;
+}
+
+.sp-empty svg {
+  color: var(--lavender);
+  opacity: 0.7;
+}
+
+.sp-empty h4 {
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+/* ----- Schedule toolbar ----- */
+.sp-schedule-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sp-toggle {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.sp-toggle-btn {
+  padding: 7px 18px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.sp-toggle-btn:hover {
+  color: var(--text);
+}
+
+.sp-toggle-btn.active {
+  background: linear-gradient(135deg, var(--violet), #7c3aed);
+  color: white;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+}
+
+.sp-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sp-nav-btn,
+.sp-today-btn {
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.sp-nav-btn {
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-today-btn {
+  padding: 0 14px;
+  font-size: 0.88rem;
+}
+
+.sp-nav-btn:hover,
+.sp-today-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--violet);
+}
+
+.sp-range {
+  margin: 18px 0 16px;
+  font-size: 1.05rem;
+  color: var(--lavender);
+}
+
+.sp-daily-summary {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: 12px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1000px) {
+  .sp-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .sp-stats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}

@@ -1,0 +1,292 @@
+/* ----- Timetable / Calendar switcher (used in StudyPlanner.jsx) ----- */
+.cv-switch {
+  display: inline-flex;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cv-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.cv-switch-btn:hover {
+  color: var(--text);
+}
+
+.cv-switch-btn.active {
+  background: rgba(139, 92, 246, 0.22);
+  color: var(--lavender);
+  box-shadow: inset 0 0 0 1px var(--violet);
+}
+
+/* ----- Toolbar ----- */
+.cv-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cv-month {
+  font-size: 1.15rem;
+  color: var(--lavender);
+}
+
+/* ----- Month grid ----- */
+.cv-weekdays,
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.cv-weekdays {
+  margin-bottom: 6px;
+}
+
+.cv-weekday {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cv-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  min-width: 0;
+  min-height: 108px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cv-cell:hover {
+  background: rgba(139, 92, 246, 0.12);
+  transform: translateY(-2px);
+}
+
+.cv-cell.outside {
+  opacity: 0.45;
+}
+
+.cv-cell.today {
+  border-color: var(--violet);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.cv-cell.selected {
+  box-shadow: 0 0 0 2px var(--lavender);
+}
+
+.cv-num {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Today's date number gets a filled circle */
+.cv-cell.today .cv-num {
+  background: linear-gradient(135deg, var(--violet), #7c3aed);
+  color: white;
+  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.5);
+}
+
+/* ----- Session chips (large screens) ----- */
+.cv-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.cv-chip {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  min-width: 0;
+  padding: 2px 6px;
+  border-left: 3px solid var(--subject-color);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.06); /* fallback */
+  background: color-mix(in srgb, var(--subject-color) 22%, transparent);
+  font-size: 0.7rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.cv-chip-time {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.cv-chip-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.cv-chip.done {
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+
+.cv-more {
+  padding-left: 2px;
+  color: var(--lavender);
+  font-size: 0.7rem;
+}
+
+/* ----- Dots (small screens only) ----- */
+.cv-dots {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px;
+}
+
+.cv-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--subject-color);
+}
+
+/* ----- Selected day panel ----- */
+.cv-day-panel {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.cv-day-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cv-day-title {
+  font-size: 1.05rem;
+}
+
+.cv-day-sub {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.cv-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--violet), #7c3aed);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cv-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+}
+
+/* ----- Responsive ----- */
+/* Cells get too narrow for text, so show dots instead of chips */
+@media (max-width: 1100px) {
+  .cv-chips {
+    display: none;
+  }
+
+  .cv-dots {
+    display: flex;
+  }
+
+  .cv-cell {
+    align-items: center;
+    min-height: 62px;
+    padding: 6px 4px;
+  }
+
+  .cv-num {
+    align-self: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .cv-weekdays,
+  .cv-grid {
+    gap: 4px;
+  }
+
+  .cv-cell {
+    min-height: 54px;
+    border-radius: 10px;
+  }
+
+  .cv-cell:hover {
+    transform: none;
+  }
+
+  .cv-num {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .cv-switch {
+    display: flex;
+    width: 100%;
+  }
+
+  .cv-switch-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 9px 10px;
+    font-size: 0.82rem;
+  }
+
+  .cv-add-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

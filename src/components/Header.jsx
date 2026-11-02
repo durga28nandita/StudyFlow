@@ -1,6 +1,7 @@
+import { User } from "lucide-react";
 import "../styles/Header.css";
 
-function Header({ userName }) {
+function Header() {
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
@@ -8,18 +9,15 @@ function Header({ userName }) {
     year: "numeric",
   });
 
-  // Use the first letter of the name as the avatar
-  const initial = userName.charAt(0).toUpperCase();
-
   return (
     <header className="header">
       <div>
-        <h1 className="header-title">Welcome back, {userName} 👋</h1>
+        <h1 className="header-title">Welcome back! 👋</h1>
         <p className="header-date">{today}</p>
       </div>
 
-      <div className="avatar" title={userName}>
-        {initial}
+      <div className="avatar" aria-label="Profile">
+        <User size={22} />
       </div>
     </header>
   );
